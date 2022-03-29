@@ -29,11 +29,14 @@ dart_code_metrics:
     - avoid-unrelated-type-assertions
     - avoid-border-all
     - avoid-returning-widgets
+    - avoid-wrapping-in-padding
     - prefer-const-border-radius
     - prefer-trailing-comma
     - prefer-conditional-expressions
     - prefer-extracting-callbacks
-    - prefer-single-widget-per-file
+    - prefer-single-widget-per-file:
+        ignore-private-widgets: true
+    - prefer-correct-identifier-length
     - prefer-first
     - prefer-last
     - prefer-immediate-return
@@ -45,13 +48,6 @@ dart_code_metrics:
     - format-comment
     - tag-name
     - always-remove-listener
-
-  #    - prefer-correct-type-name
-  #    - prefer-correct-identifier-length
-  #    - avoid-wrapping-in-padding
-  #    - prefer-extracting-callbacks
-  #    - prefer-single-widget-per-file:
-  #        ignore-private-widgets: true
   rules-exclude:
     - test/**
     - integration_test/**

@@ -8,7 +8,12 @@ class CounterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Counter Page')),
       body: BlocBuilder<CounterCubit, int>(
-        builder: (context, count) => Center(child: Text('$count')),
+        builder: (context, count) => Center(
+          child: Text(
+            '$count',
+            style: Theme.of(context).textTheme.headline1,
+          ),
+        ),
       ),
       floatingActionButton: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
