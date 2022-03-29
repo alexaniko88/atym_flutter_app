@@ -1,10 +1,15 @@
-import 'package:atym_flutter_app/cubits/counter_cubit.dart';
+import 'package:atym_flutter_app/core/simple_bloc_delegate.dart';
 import 'package:atym_flutter_app/ui/pages/counter_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  BlocOverrides.runZoned(
+    () {
+      runApp(const MyApp());
+    },
+    blocObserver: SimpleBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,9 +18,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BlocProvider(
-        create: (_) => CounterCubit(),
-        child: CounterPage(),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Page chooser')),
+        body: Align(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              Builder(
+                builder: (context) {
+                  return ElevatedButton(
+                    child: Text('Go to counter page'),
+                    onPressed: () => Navigator.push(
+                      context,
+                      CounterPage.route(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
