@@ -18,3 +18,8 @@ git checkout stable
 ###Code metrics
 flutter pub run dart_code_metrics:metrics lib --reporter=html
 flutter pub run dart_code_metrics:metrics analyze lib
+
+##Useful info
+
+###Testing Endpoints
+https://akabab.github.io/superhero-api/api/all.json
