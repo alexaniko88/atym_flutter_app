@@ -1,12 +1,19 @@
 import 'package:atym_flutter_app/core/simple_bloc_delegate.dart';
+import 'package:atym_flutter_app/provider_setup.dart';
 import 'package:atym_flutter_app/ui/pages/counter_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   BlocOverrides.runZoned(
     () {
-      runApp(const MyApp());
+      runApp(
+        MultiProvider(
+          providers: providers,
+          child: const MyApp(),
+        ),
+      );
     },
     blocObserver: SimpleBlocObserver(),
   );
