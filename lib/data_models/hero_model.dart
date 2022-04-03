@@ -1,6 +1,6 @@
-import 'package:atym_flutter_app/models/appearance_model.dart';
-import 'package:atym_flutter_app/models/hero_images_model.dart';
-import 'package:atym_flutter_app/models/power_stats_model.dart';
+import 'package:atym_flutter_app/data_models/appearance_model.dart';
+import 'package:atym_flutter_app/data_models/hero_images_model.dart';
+import 'package:atym_flutter_app/data_models/power_stats_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'hero_model.g.dart';

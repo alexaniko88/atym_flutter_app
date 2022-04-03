@@ -1,0 +1,3 @@
+class CubitState {
+  const CubitState();
+}

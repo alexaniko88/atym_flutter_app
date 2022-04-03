@@ -40,6 +40,7 @@ dependencies:
   http: ^0.13.4
   json_annotation: ^4.4.0
   connectivity_plus: ^2.2.1
+  cached_network_image: ^3.2.0
 
   bloc_test: ^9.0.3
   network_image_mock: ^2.1.0
