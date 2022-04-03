@@ -1,10 +1,13 @@
+import 'package:atym_flutter_app/constants.dart';
 import 'package:atym_flutter_app/cubits/heroes_cubit.dart';
 import 'package:atym_flutter_app/repositories/heroes_repository.dart';
 import 'package:atym_flutter_app/ui/builders/cubit_with_connectivity_wrapper_builder.dart';
+import 'package:atym_flutter_app/ui/widgets/language_switcher_icon.dart';
 import 'package:atym_flutter_app/view_models/hero_view_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HeroesPage extends StatelessWidget {
   const HeroesPage({Key? key}) : super(key: key);
@@ -23,11 +26,12 @@ class HeroesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Heroes Page'),
+        title: Text(AppLocalizations.of(context).heroesPage),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        actions: [LanguageSwitcherIcon()],
       ),
       body:
           CubitWithConnectivityWrapperBuilder<HeroesCubit, List<HeroViewModel>>(
@@ -35,7 +39,7 @@ class HeroesPage extends StatelessWidget {
         listener: (_, current) {},
         builder: (context, bloc, data, isOnline) {
           return Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(defaultPadding),
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: data.length,
@@ -45,16 +49,30 @@ class HeroesPage extends StatelessWidget {
                   child: ListTile(
                     leading: CachedNetworkImage(
                       imageUrl: item.imageURL,
-                      width: 50,
+                      width: leadingImageWidth,
                     ),
-                    title: Text(item.name ?? 'N/A'),
-                    subtitle: Text(item.gender ?? 'N/A'),
-                    trailing: Column(
-                      children: [
-                        Text('Speed: ${item.speed}'),
-                        Text('Power: ${item.power}'),
-                        Text('Strength: ${item.strength}'),
-                      ],
+                    title: Text(item.name ?? notAvailable),
+                    subtitle: Text(item.fullName ?? notAvailable),
+                    trailing: SizedBox(
+                      width: heroListTileTrailingWidth,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${AppLocalizations.of(context).speed}: '
+                            '${item.speed}',
+                          ),
+                          Text(
+                            '${AppLocalizations.of(context).power}: '
+                            '${item.power}',
+                          ),
+                          Text(
+                            '${AppLocalizations.of(context).strength}: '
+                            '${item.strength}',
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );

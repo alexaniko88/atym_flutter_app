@@ -7,10 +7,10 @@ class HeroImagesModel {
   final String? xs, sm, md, lg;
 
   const HeroImagesModel({
-    required this.xs,
-    required this.sm,
-    required this.md,
-    required this.lg,
+    this.xs,
+    this.sm,
+    this.md,
+    this.lg,
   });
 
   factory HeroImagesModel.fromJson(Map<String, dynamic> json) =>

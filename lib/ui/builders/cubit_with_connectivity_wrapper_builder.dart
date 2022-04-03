@@ -1,3 +1,4 @@
+import 'package:atym_flutter_app/constants.dart';
 import 'package:atym_flutter_app/core/cubit_states/cubit_state.dart';
 import 'package:atym_flutter_app/core/cubit_states/data_state.dart';
 import 'package:atym_flutter_app/core/cubit_states/error_state.dart';
@@ -66,10 +67,22 @@ class CubitWithConnectivityWrapperBuilder<B extends Cubit<CubitState>, D>
           listener: listener,
           builder: (context, state) {
             if (state is LoadingState) {
-              // TODO finish it.
-              return Text('Loading');
+              return Center(child: CircularProgressIndicator());
             } else if (state is ErrorState) {
-              return Text(state.exception.type?.toString() ?? 'Some exception');
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error, size: errorStateIconSize),
+                    Text(
+                      state.exception.toString(),
+                      style: Theme.of(context).textTheme.titleMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
             } else if (state is DataState) {
               return builder.call(context, bloc, state.data, isOnline);
             } else {

@@ -7,12 +7,12 @@ class PowerStatsModel {
   final int? intelligence, strength, speed, durability, power, combat;
 
   const PowerStatsModel({
-    required this.intelligence,
-    required this.strength,
-    required this.speed,
-    required this.durability,
-    required this.power,
-    required this.combat,
+    this.intelligence,
+    this.strength,
+    this.speed,
+    this.durability,
+    this.power,
+    this.combat,
   });
 
   factory PowerStatsModel.fromJson(Map<String, dynamic> json) =>

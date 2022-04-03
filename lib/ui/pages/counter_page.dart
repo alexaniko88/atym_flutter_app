@@ -1,6 +1,8 @@
 import 'package:atym_flutter_app/cubits/counter_cubit.dart';
+import 'package:atym_flutter_app/ui/widgets/language_switcher_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CounterPage extends StatelessWidget {
   static Route route() {
@@ -16,11 +18,12 @@ class CounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter Page'),
+        title: Text(AppLocalizations.of(context).counterPage),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        actions: [LanguageSwitcherIcon()],
       ),
       body: BlocBuilder<CounterCubit, int>(
         builder: (context, count) => Center(

@@ -1,4 +1,5 @@
 import 'package:atym_flutter_app/data_models/appearance_model.dart';
+import 'package:atym_flutter_app/data_models/biography_model.dart';
 import 'package:atym_flutter_app/data_models/hero_images_model.dart';
 import 'package:atym_flutter_app/data_models/power_stats_model.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -11,18 +12,21 @@ class HeroModel {
   final String? name, slug;
   @JsonKey(name: 'appearance')
   final AppearanceModel? appearanceModel;
+  @JsonKey(name: 'biography')
+  final BiographyModel? biographyModel;
   @JsonKey(name: 'powerstats')
   final PowerStatsModel? powerStatsModel;
   @JsonKey(name: 'images')
   final HeroImagesModel? heroImagesModel;
 
   const HeroModel({
-    required this.id,
-    required this.name,
-    required this.slug,
-    required this.appearanceModel,
-    required this.powerStatsModel,
-    required this.heroImagesModel,
+    this.id,
+    this.name,
+    this.slug,
+    this.appearanceModel,
+    this.powerStatsModel,
+    this.heroImagesModel,
+    this.biographyModel,
   });
 
   factory HeroModel.fromJson(Map<String, dynamic> json) =>

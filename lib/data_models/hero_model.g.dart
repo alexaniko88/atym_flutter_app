@@ -21,6 +21,9 @@ HeroModel _$HeroModelFromJson(Map<String, dynamic> json) => HeroModel(
       heroImagesModel: json['images'] == null
           ? null
           : HeroImagesModel.fromJson(json['images'] as Map<String, dynamic>),
+      biographyModel: json['biography'] == null
+          ? null
+          : BiographyModel.fromJson(json['biography'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$HeroModelToJson(HeroModel instance) => <String, dynamic>{
@@ -28,6 +31,7 @@ Map<String, dynamic> _$HeroModelToJson(HeroModel instance) => <String, dynamic>{
       'name': instance.name,
       'slug': instance.slug,
       'appearance': instance.appearanceModel,
+      'biography': instance.biographyModel,
       'powerstats': instance.powerStatsModel,
       'images': instance.heroImagesModel,
     };

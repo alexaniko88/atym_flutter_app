@@ -23,3 +23,9 @@ flutter pub run dart_code_metrics:metrics analyze lib
 
 ###Testing Endpoints
 https://akabab.github.io/superhero-api/api/all.json
+
+###Generate the localizations
+flutter gen-l10n
+
+###Generate .g for data models
+flutter pub run build_runner build

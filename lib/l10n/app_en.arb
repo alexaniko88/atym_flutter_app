@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+
+  "pageChooser": "Page chooser",
+  "goToCounterPage": "Go to counter page",
+  "counterPage": "Counter page",
+  "goToHeroesPage": "Go to heroes page",
+  "heroesPage": "Heroes Page",
+  "changeLanguageToSpanish": "Change language to Spanish",
+  "changeLanguageToEnglish": "Change language to English",
+  "speed": "Speed",
+  "power": "Power",
+  "strength": "Strength"
+}

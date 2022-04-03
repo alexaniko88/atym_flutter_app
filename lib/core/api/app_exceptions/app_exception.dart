@@ -12,5 +12,5 @@ class AppException {
 
   @override
   String toString() =>
-      "Exception of type: ${type.toString()}\nwith message: $message";
+      "App Exception: ${type.toString()}\nwith message: $message";
 }
