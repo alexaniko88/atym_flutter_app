@@ -26,7 +26,7 @@ typedef DefaultStateBuilderCallback<B, S> = Function(
   bool isOnline,
 );
 
-class CubitBuilderWithConnectivityWrapper<B extends Cubit<CubitState>, D>
+class CubitWithConnectivityWrapperBuilder<B extends Cubit<CubitState>, D>
     extends StatelessWidget {
   final B bloc;
   final DataStateBuilderCallback<B, D> builder;
@@ -36,7 +36,7 @@ class CubitBuilderWithConnectivityWrapper<B extends Cubit<CubitState>, D>
   final BlocListenerCondition<CubitState>? listenWhen;
   final DefaultStateBuilderCallback<B, CubitState>? defaultStateBuilder;
 
-  const CubitBuilderWithConnectivityWrapper({
+  const CubitWithConnectivityWrapperBuilder({
     Key? key,
     required this.bloc,
     required this.listener,

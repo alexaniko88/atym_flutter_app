@@ -1,6 +1,6 @@
 import 'package:atym_flutter_app/cubits/heroes_cubit.dart';
 import 'package:atym_flutter_app/repositories/heroes_repository.dart';
-import 'package:atym_flutter_app/ui/builders/cubit_builder_with_connectivity_wrapper.dart';
+import 'package:atym_flutter_app/ui/builders/cubit_with_connectivity_wrapper_builder.dart';
 import 'package:atym_flutter_app/view_models/hero_view_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class HeroesPage extends StatelessWidget {
         ),
       ),
       body:
-          CubitBuilderWithConnectivityWrapper<HeroesCubit, List<HeroViewModel>>(
+          CubitWithConnectivityWrapperBuilder<HeroesCubit, List<HeroViewModel>>(
         bloc: context.watch<HeroesCubit>(),
         listener: (_, current) {},
         builder: (context, bloc, data, isOnline) {
