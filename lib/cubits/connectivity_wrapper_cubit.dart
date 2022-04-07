@@ -13,7 +13,7 @@ class ConnectivityWrapperCubit extends Cubit<bool> {
 
   void setConnectivityListener() {
     _connectivityService.setConnectivityListener(
-      doOnConnected: doOnDisconnected,
+      doOnConnected: doOnConnected,
       doOnDisconnected: doOnDisconnected,
     );
   }

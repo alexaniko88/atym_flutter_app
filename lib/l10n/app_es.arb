@@ -10,5 +10,6 @@
   "changeLanguageToEnglish": "Cambiar idioma a Inglés",
   "speed": "Velocidad",
   "power": "Poder",
-  "strength": "Fuerza"
-}
+  "strength": "Fuerza",
+  "youAreOffline": "Estas desconectado!",
+  "youAreBackOnline": "Estas conectado de vuelta!"}

@@ -7,10 +7,11 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 class DefaultConnectivityService implements ConnectivityService {
   final Connectivity? connectivity;
   StreamSubscription<ConnectivityResult>? _connectivityStatusListener;
+  bool isConnectivityStatusReceived = true;
 
   DefaultConnectivityService({
     Connectivity? connectivity,
-  }) : this.connectivity = connectivity ?? Connectivity() {}
+  }) : this.connectivity = connectivity ?? Connectivity();
 
   @override
   Future<bool> hasConnection() async {
@@ -28,14 +29,20 @@ class DefaultConnectivityService implements ConnectivityService {
       switch (result) {
         case ConnectivityResult.wifi:
         case ConnectivityResult.mobile:
-          doOnConnected?.call();
+          if (!isConnectivityStatusReceived) {
+            isConnectivityStatusReceived = true;
+            doOnConnected?.call();
+          }
           break;
         case ConnectivityResult.ethernet:
         // Not used.
         case ConnectivityResult.bluetooth:
         // Not used.
         case ConnectivityResult.none:
-          doOnDisconnected?.call();
+          if (isConnectivityStatusReceived) {
+            isConnectivityStatusReceived = false;
+            doOnDisconnected?.call();
+          }
           break;
       }
     });

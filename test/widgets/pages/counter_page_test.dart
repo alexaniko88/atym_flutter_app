@@ -1,5 +1,5 @@
 import 'package:atym_flutter_app/cubits/counter_cubit.dart';
-import 'package:atym_flutter_app/ui/pages/counter_page.dart';
+import 'package:atym_flutter_app/ui/widgets/counter_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,7 +13,7 @@ void main() {
       (WidgetTester tester) async {
         await WidgetTestsHelper.testWidget(
           tester,
-          CounterPage(),
+          CounterView(),
           optionalWrapper: (child) => BlocProvider(
             create: (_) => CounterCubit(),
             child: child,
