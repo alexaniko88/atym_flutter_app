@@ -1,11 +1,9 @@
 {
   "@@locale": "es",
 
-  "pageChooser": "Selector de paginas",
-  "goToCounterPage": "Ir a la página del contador",
-  "counterPage": "Página del contador",
-  "goToHeroesPage": "Ir a la página de héroes",
-  "heroesPage": "Página de heroes",
+  "viewChooser": "Selector de vistas",
+  "counterView": "Vista del contador",
+  "heroesView": "Vista de heroes",
   "changeLanguageToSpanish": "Cambiar idioma a Español",
   "changeLanguageToEnglish": "Cambiar idioma a Inglés",
   "speed": "Velocidad",

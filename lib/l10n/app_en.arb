@@ -1,9 +1,9 @@
 {
   "@@locale": "en",
 
-  "pageChooser": "Page chooser",
-  "counterPage": "Counter page",
-  "heroesPage": "Heroes Page",
+  "viewChooser": "View chooser",
+  "counterView": "Counter view",
+  "heroesView": "Heroes view",
   "changeLanguageToSpanish": "Change language to Spanish",
   "changeLanguageToEnglish": "Change language to English",
   "speed": "Speed",

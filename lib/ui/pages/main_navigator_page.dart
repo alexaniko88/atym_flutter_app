@@ -43,7 +43,7 @@ class _MainNavigatorPageState extends State<MainNavigatorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).pageChooser),
+        title: Text(AppLocalizations.of(context).viewChooser),
         actions: [LanguageSwitcherIcon()],
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
@@ -53,12 +53,12 @@ class _MainNavigatorPageState extends State<MainNavigatorPage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.calculate),
-            label: AppLocalizations.of(context).counterPage,
+            label: AppLocalizations.of(context).counterView,
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: AppLocalizations.of(context).heroesPage,
+            icon: Icon(Icons.list_alt),
+            label: AppLocalizations.of(context).heroesView,
             backgroundColor: Colors.green,
           ),
         ],
