@@ -21,7 +21,7 @@ class HeroesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CubitWithConnectivityWrapperBuilder<HeroesCubit,
         List<HeroViewModel>>(
-      bloc: context.watch<HeroesCubit>(),
+      cubit: context.watch<HeroesCubit>(),
       listener: (_, current) {},
       connectivityListenerCallback: (context, cubit, isOnline) => _refresh(
         cubit: cubit,

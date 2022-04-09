@@ -9,27 +9,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 typedef ConnectivityListenerCallback<B> = Function(
   BuildContext context,
-  B bloc,
+  B cubit,
   bool isOnline,
 );
 
 typedef DataStateBuilderCallback<B, D> = Function(
   BuildContext context,
-  B bloc,
+  B cubit,
   D data,
   bool isOnline,
 );
 
 typedef DefaultStateBuilderCallback<B, S> = Function(
   BuildContext context,
-  B bloc,
+  B cubit,
   S state,
   bool isOnline,
 );
 
 class CubitWithConnectivityWrapperBuilder<B extends Cubit<CubitState>, D>
     extends StatelessWidget {
-  final B bloc;
+  final B cubit;
   final DataStateBuilderCallback<B, D> builder;
   final BlocWidgetListener<CubitState> listener;
   final ConnectivityListenerCallback<B>? connectivityListenerCallback;
@@ -39,7 +39,7 @@ class CubitWithConnectivityWrapperBuilder<B extends Cubit<CubitState>, D>
 
   const CubitWithConnectivityWrapperBuilder({
     Key? key,
-    required this.bloc,
+    required this.cubit,
     required this.listener,
     required this.builder,
     this.connectivityListenerCallback,
@@ -53,12 +53,12 @@ class CubitWithConnectivityWrapperBuilder<B extends Cubit<CubitState>, D>
     return ConnectivityWrapperBuilder(
       listener: (context, isOnline) => connectivityListenerCallback?.call(
         context,
-        bloc,
+        cubit,
         isOnline,
       ),
       builder: (context, isOnline) {
         return BlocConsumer<B, CubitState>(
-          bloc: bloc,
+          bloc: cubit,
           buildWhen: buildWhen ??
               (prev, current) => (current is LoadingState ||
                   current is ErrorState ||
@@ -84,9 +84,9 @@ class CubitWithConnectivityWrapperBuilder<B extends Cubit<CubitState>, D>
                 ),
               );
             } else if (state is DataState) {
-              return builder.call(context, bloc, state.data, isOnline);
+              return builder.call(context, cubit, state.data, isOnline);
             } else {
-              return defaultStateBuilder?.call(context, bloc, state, isOnline);
+              return defaultStateBuilder?.call(context, cubit, state, isOnline);
             }
           },
         );
