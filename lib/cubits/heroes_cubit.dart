@@ -2,7 +2,7 @@ import 'package:atym_flutter_app/core/cubit_states/cubit_state.dart';
 import 'package:atym_flutter_app/core/cubit_states/data_state.dart';
 import 'package:atym_flutter_app/core/cubit_states/error_state.dart';
 import 'package:atym_flutter_app/core/cubit_states/loading_state.dart';
-import 'package:atym_flutter_app/repositories/heroes_repository.dart';
+import 'package:atym_flutter_app/repositories/heroes/heroes_repository.dart';
 import 'package:atym_flutter_app/view_models/hero_view_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

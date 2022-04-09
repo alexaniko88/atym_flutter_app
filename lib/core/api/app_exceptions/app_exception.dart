@@ -2,6 +2,7 @@ enum ExceptionType {
   offline,
   fetchData,
   unauthorised,
+  wrongAsset,
 }
 
 class AppException {

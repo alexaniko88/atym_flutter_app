@@ -2,8 +2,8 @@ import 'package:atym_flutter_app/core/api/default_heroes_api.dart';
 import 'package:atym_flutter_app/core/api/heroes_api.dart';
 import 'package:atym_flutter_app/core/http_client/default_http_client.dart';
 import 'package:atym_flutter_app/core/http_client/http_client.dart';
-import 'package:atym_flutter_app/repositories/default_heroes_repository.dart';
-import 'package:atym_flutter_app/repositories/heroes_repository.dart';
+import 'package:atym_flutter_app/repositories/heroes/default_heroes_repository.dart';
+import 'package:atym_flutter_app/repositories/heroes/heroes_repository.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 

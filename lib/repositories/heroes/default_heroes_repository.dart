@@ -2,7 +2,7 @@ import 'package:atym_flutter_app/core/api/app_exceptions/fetch_data_exception.da
 import 'package:atym_flutter_app/core/api/heroes_api.dart';
 import 'package:atym_flutter_app/core/api_response.dart';
 import 'package:atym_flutter_app/data_models/hero_model.dart';
-import 'package:atym_flutter_app/repositories/heroes_repository.dart';
+import 'package:atym_flutter_app/repositories/heroes/heroes_repository.dart';
 
 class DefaultHeroesRepository implements HeroesRepository {
   final HeroesApi api;
