@@ -1,8 +1,8 @@
 import 'package:atym_flutter_app/cubits/heroes_cubit.dart';
-import 'package:atym_flutter_app/ui/widgets/connectivity_notificator.dart';
+import 'package:atym_flutter_app/ui/widgets/connectivity_notification_view.dart';
 import 'package:atym_flutter_app/ui/widgets/counter_view.dart';
 import 'package:atym_flutter_app/ui/widgets/heroes_view.dart';
-import 'package:atym_flutter_app/ui/widgets/language_switcher_icon.dart';
+import 'package:atym_flutter_app/ui/widgets/language_switcher_icon_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -44,10 +44,10 @@ class _MainNavigatorPageState extends State<MainNavigatorPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).viewChooser),
-        actions: [LanguageSwitcherIcon()],
+        actions: [LanguageSwitcherIconView()],
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
-      bottomSheet: ConnectivityNotificator(),
+      bottomSheet: ConnectivityNotificationView(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         items: [
@@ -59,11 +59,11 @@ class _MainNavigatorPageState extends State<MainNavigatorPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.list_alt),
             label: AppLocalizations.of(context).heroesView,
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.purple,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber,
+        selectedItemColor: Colors.yellowAccent,
         onTap: (index) => _onItemTapped(
           context: context,
           index: index,

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LanguageSwitcherIcon extends StatelessWidget {
-  const LanguageSwitcherIcon({Key? key}) : super(key: key);
+class LanguageSwitcherIconView extends StatelessWidget {
+  const LanguageSwitcherIconView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,6 @@ class LanguageSwitcherIcon extends StatelessWidget {
       localeToDisplay = Locales.english;
       textToDisplay = AppLocalizations.of(context).changeLanguageToEnglish;
     }
-
     return showAdaptiveActionSheet(
       context: context,
       actions: <BottomSheetAction>[

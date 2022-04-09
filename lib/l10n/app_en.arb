@@ -9,6 +9,9 @@
   "speed": "Speed",
   "power": "Power",
   "strength": "Strength",
+  "intelligence": "Intelligence",
+  "durability": "Durability",
+  "combat": "Combat",
   "youAreOffline": "You are offline!",
   "youAreBackOnline": "You are back online!"
 }

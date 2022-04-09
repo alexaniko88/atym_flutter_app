@@ -15,18 +15,18 @@ class _Constants {
   static const double containerHeight = 32;
 }
 
-class ConnectivityNotificator extends StatefulWidget {
-  ConnectivityNotificator({
+class ConnectivityNotificationView extends StatefulWidget {
+  ConnectivityNotificationView({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<ConnectivityNotificator> createState() =>
-      _ConnectivityNotificatorState();
+  State<ConnectivityNotificationView> createState() =>
+      _ConnectivityNotificationViewState();
 }
 
-class _ConnectivityNotificatorState extends State<ConnectivityNotificator>
-    with TickerProviderStateMixin {
+class _ConnectivityNotificationViewState
+    extends State<ConnectivityNotificationView> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _height;
   Timer? _reverseAnimationTimer;

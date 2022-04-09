@@ -1,14 +1,17 @@
 import 'package:atym_flutter_app/data_models/hero_model.dart';
+import 'package:flutter/material.dart';
 
 class HeroViewModel {
+  final Key? key;
   final String imageURL;
-  final String? name, fullName;
+  final String name, fullName;
   final int intelligence, strength, speed, durability, power, combat;
 
   const HeroViewModel({
     required this.imageURL,
-    this.name,
-    this.fullName,
+    required this.name,
+    required this.fullName,
+    this.key,
     int? intelligence,
     int? strength,
     int? speed,
@@ -23,9 +26,10 @@ class HeroViewModel {
         this.combat = combat ?? 0;
 
   factory HeroViewModel.fromDataModel(HeroModel heroModel) => HeroViewModel(
-        imageURL: heroModel.heroImagesModel?.md ?? '',
-        name: heroModel.name,
-        fullName: heroModel.biographyModel?.fullName,
+        key: UniqueKey(),
+        imageURL: heroModel.heroImagesModel?.sm ?? '',
+        name: heroModel.name ?? '',
+        fullName: heroModel.biographyModel?.fullName ?? '',
         combat: heroModel.powerStatsModel?.combat,
         durability: heroModel.powerStatsModel?.durability,
         intelligence: heroModel.powerStatsModel?.intelligence,
