@@ -12,11 +12,11 @@ class _Constants {
   static const double avatarSpreadRadius = 5;
   static const double avatarBlurRadius = 5;
 
-  static const int maxRange = 100;
-  static const int greenRangeEnd = 80;
-  static const int blueRangeEnd = 60;
-  static const int yellowRangeEnd = 40;
-  static const int orangeRangeEnd = 20;
+  static const int redRangeStart = 0;
+  static const int orangeRangeStart = 20;
+  static const int yellowRangeStart = 40;
+  static const int blueRangeStart = 60;
+  static const int greenRangeStart = 80;
 }
 
 class HeroDetailsPage extends StatelessWidget {
@@ -197,27 +197,27 @@ class HeroDetailsPage extends StatelessWidget {
 
   Color _getColorByStat(int stat) {
     if (stat.isBetween(
-      from: _Constants.maxRange,
-      to: _Constants.greenRangeEnd,
+      from: _Constants.redRangeStart,
+      to: _Constants.orangeRangeStart,
     )) {
-      return Colors.green;
+      return Colors.red;
     } else if (stat.isBetween(
-      from: _Constants.greenRangeEnd,
-      to: _Constants.blueRangeEnd,
+      from: _Constants.orangeRangeStart,
+      to: _Constants.yellowRangeStart,
     )) {
-      return Colors.blue;
+      return Colors.orange;
     } else if (stat.isBetween(
-      from: _Constants.blueRangeEnd,
-      to: _Constants.yellowRangeEnd,
+      from: _Constants.yellowRangeStart,
+      to: _Constants.blueRangeStart,
     )) {
       return Colors.yellow;
     } else if (stat.isBetween(
-      from: _Constants.yellowRangeEnd,
-      to: _Constants.orangeRangeEnd,
+      from: _Constants.blueRangeStart,
+      to: _Constants.greenRangeStart,
     )) {
-      return Colors.orange;
+      return Colors.blue;
     } else {
-      return Colors.red;
+      return Colors.green;
     }
   }
 }

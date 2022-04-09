@@ -22,7 +22,6 @@ class DefaultHttpClient implements HttpClient {
 
   Response _processResponse(Response response) {
     debugPrint('Response code: ${response.statusCode.toString()}');
-    debugPrint('Response body: ${response.body.toString()}');
     switch (response.statusCode) {
       case HttpStatus.ok:
         return response;
