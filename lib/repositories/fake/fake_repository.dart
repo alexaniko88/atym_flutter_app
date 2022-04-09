@@ -4,6 +4,7 @@ import 'package:atym_flutter_app/core/api/app_exceptions/fetch_data_exception.da
 import 'package:atym_flutter_app/core/api/app_exceptions/offline_exception.dart';
 import 'package:atym_flutter_app/core/api/app_exceptions/wrong_asset_exception.dart';
 import 'package:atym_flutter_app/core/api_response.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 enum RepositoryResponseType {
@@ -74,7 +75,7 @@ class FakeRepository {
       final data = await json.decode(response);
       return data;
     } catch (e) {
-      print(
+      debugPrint(
         'Unable to loadString from provided asset with path: ${_data.dataSourcePath}',
       );
       return null;

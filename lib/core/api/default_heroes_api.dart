@@ -6,8 +6,6 @@ import 'package:atym_flutter_app/core/api/app_exceptions/fetch_data_exception.da
 import 'package:atym_flutter_app/core/api/app_exceptions/offline_exception.dart';
 import 'package:atym_flutter_app/core/api_response.dart';
 import 'package:atym_flutter_app/core/http_client/http_client.dart';
-import 'package:atym_flutter_app/services/connectivity/connectivity_service.dart';
-import 'package:atym_flutter_app/services/connectivity/default_connectivity_service.dart';
 
 import 'heroes_api.dart';
 
@@ -25,13 +23,8 @@ class _Constants {
 
 class DefaultHeroesApi implements HeroesApi {
   final HttpClient client;
-  final ConnectivityService connectivityService;
 
-  DefaultHeroesApi(
-    this.client, {
-    ConnectivityService? connectivityService,
-  }) : this.connectivityService =
-            connectivityService ?? DefaultConnectivityService();
+  DefaultHeroesApi(this.client);
 
   @override
   Future<ApiResponse> get(
@@ -44,23 +37,19 @@ class DefaultHeroesApi implements HeroesApi {
           (heroId ?? '') +
           _Constants.extension,
     );
-    if (!await connectivityService.hasConnection()) {
+    try {
+      final result = await client.get(uri);
+      return ApiResponse(data: _getProcessedResponse(result.body));
+    } on SocketException catch (_) {
       return ApiResponse(exception: OfflineException());
-    } else {
-      try {
-        final result = await client.get(uri);
-        return ApiResponse(data: _getProcessedResponse(result.body));
-      } on SocketException catch (_) {
-        return ApiResponse(exception: OfflineException());
-      } on AppException catch (exception) {
-        return ApiResponse(exception: exception);
-      } on Exception catch (exception) {
-        return ApiResponse(
-          exception: FetchDataException(
-            exception.toString(),
-          ),
-        );
-      }
+    } on AppException catch (exception) {
+      return ApiResponse(exception: exception);
+    } on Exception catch (exception) {
+      return ApiResponse(
+        exception: FetchDataException(
+          exception.toString(),
+        ),
+      );
     }
   }
 

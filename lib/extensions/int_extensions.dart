@@ -3,5 +3,5 @@ extension IntExtensions on int {
     required int from,
     required int to,
   }) =>
-       this <= from  && this > to;
+       this <= from  && this >= to;
 }

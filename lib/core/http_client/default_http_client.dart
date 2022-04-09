@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:atym_flutter_app/core/api/app_exceptions/fetch_data_exception.dart';
 import 'package:atym_flutter_app/core/api/app_exceptions/unauthorised_exception.dart';
 import 'package:atym_flutter_app/core/http_client/http_client.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 
 class DefaultHttpClient implements HttpClient {
@@ -20,8 +21,8 @@ class DefaultHttpClient implements HttpClient {
   }
 
   Response _processResponse(Response response) {
-    print('Response code: ${response.statusCode.toString()}');
-    print('Response body: ${response.body.toString()}');
+    debugPrint('Response code: ${response.statusCode.toString()}');
+    debugPrint('Response body: ${response.body.toString()}');
     switch (response.statusCode) {
       case HttpStatus.ok:
         return response;
