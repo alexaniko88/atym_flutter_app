@@ -28,9 +28,20 @@ The app is wrapped with **connectivity listener**, so once the connection is los
 
 Also the app supports **localizations**. On the app bar, user can see the **translation** icon so if he taps on it, a **bottom dialog** will appear indicating that you can switch to the new locale. Only **English** and **Spanish** are currently supported.
 
+App uses **dart code metrics** with useful rules. Check the **analysis_options.yaml** for more info.
+
 The app is consistent, so if you try to get the heroes list being offline, it will give you the **Offline Error State**.  
 Once the connection is back, app will try to **refresh the content automatically**. Also, if we already have the data, it will not be fetched back.
 
 # TESTS
 
 All the app is tested with **Unit** and **Widget Tests**.
+App was built/compiled and executed in the real **Android Google Pixel XL** device.
+
+# EXAMPLES
+
+### Testing counter
+
+### Testing connectivity
+
+### Testing heroes list
