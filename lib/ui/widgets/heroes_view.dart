@@ -6,7 +6,6 @@ import 'package:atym_flutter_app/ui/widgets/avatar_view.dart';
 import 'package:atym_flutter_app/view_models/hero_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart' as get_navigation;
 
@@ -45,27 +44,7 @@ class HeroesView extends StatelessWidget {
                 ),
                 title: Text(item.name),
                 subtitle: Text(item.fullName),
-                trailing: SizedBox(
-                  width: heroListTileTrailingWidth,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${AppLocalizations.of(context).speed}: '
-                        '${item.speed}',
-                      ),
-                      Text(
-                        '${AppLocalizations.of(context).power}: '
-                        '${item.power}',
-                      ),
-                      Text(
-                        '${AppLocalizations.of(context).strength}: '
-                        '${item.strength}',
-                      ),
-                    ],
-                  ),
-                ),
+                trailing: Text(item.publisher),
                 onTap: () => Get.to(
                   HeroDetailsPage(
                     heroViewModel: item,

@@ -27,7 +27,6 @@ dependencies:
   adaptive_action_sheet: ^2.0.1
 
   bloc_test: ^9.0.3
-  network_image_mock: ^2.1.0
 
 dev_dependencies:
   flutter_test:

@@ -13,17 +13,19 @@ class HeroesCubit extends Cubit<CubitState> {
   HeroesCubit(this.repository) : super(LoadingState());
 
   Future getHeroes() async {
-    emit(LoadingState());
-    final result = await repository.getAllHeroes();
-    if (result.isSuccess && result.data != null) {
-      data = List.from(
-        result.data!.map(
-          (heroModel) => HeroViewModel.fromDataModel(heroModel),
-        ),
-      );
-      emit(DataState(data));
-    } else {
-      emit(ErrorState(result.exception));
+    if(data.isEmpty) {
+      emit(LoadingState());
+      final result = await repository.getAllHeroes();
+      if (result.isSuccess && result.data != null) {
+        data = List.from(
+          result.data!.map(
+                (heroModel) => HeroViewModel.fromDataModel(heroModel),
+          ),
+        );
+        emit(DataState(data));
+      } else {
+        emit(ErrorState(result.exception));
+      }
     }
   }
 }

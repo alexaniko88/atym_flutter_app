@@ -11,7 +11,9 @@ class _Constants {
   static const double totalStats = 6;
   static const double avatarSpreadRadius = 5;
   static const double avatarBlurRadius = 5;
+}
 
+class _ColorRanges {
   static const int redRangeStart = 0;
   static const int orangeRangeStart = 20;
   static const int yellowRangeStart = 40;
@@ -69,6 +71,10 @@ class HeroDetailsPage extends StatelessWidget {
                         : heroViewModel.name,
                     style: Get.theme.textTheme.headline6,
                   ),
+                ),
+                Text(
+                  '(${heroViewModel.publisher})',
+                  style: Get.theme.textTheme.subtitle1,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: defaultPadding * 3),
@@ -197,23 +203,23 @@ class HeroDetailsPage extends StatelessWidget {
 
   Color _getColorByStat(int stat) {
     if (stat.isBetween(
-      from: _Constants.redRangeStart,
-      to: _Constants.orangeRangeStart,
+      from: _ColorRanges.redRangeStart,
+      to: _ColorRanges.orangeRangeStart,
     )) {
       return Colors.red;
     } else if (stat.isBetween(
-      from: _Constants.orangeRangeStart,
-      to: _Constants.yellowRangeStart,
+      from: _ColorRanges.orangeRangeStart,
+      to: _ColorRanges.yellowRangeStart,
     )) {
       return Colors.orange;
     } else if (stat.isBetween(
-      from: _Constants.yellowRangeStart,
-      to: _Constants.blueRangeStart,
+      from: _ColorRanges.yellowRangeStart,
+      to: _ColorRanges.blueRangeStart,
     )) {
       return Colors.yellow;
     } else if (stat.isBetween(
-      from: _Constants.blueRangeStart,
-      to: _Constants.greenRangeStart,
+      from: _ColorRanges.blueRangeStart,
+      to: _ColorRanges.greenRangeStart,
     )) {
       return Colors.blue;
     } else {

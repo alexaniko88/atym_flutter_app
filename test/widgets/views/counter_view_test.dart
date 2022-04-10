@@ -7,9 +7,9 @@ import 'package:flutter_test/flutter_test.dart';
 import '../widget_tests_helper.dart';
 
 void main() {
-  group('CounterPage tests', () {
+  group('CounterView tests', () {
     testWidgets(
-      'CounterPage with default value, increasing, decreasing, reset value',
+      'pump CounterView with default value, increasing, decreasing, reset value',
       (WidgetTester tester) async {
         await WidgetTestsHelper.testWidget(
           tester,
@@ -19,23 +19,23 @@ void main() {
             child: child,
           ),
         );
-        await WidgetTestsHelper.expectGolden('counter_page_test_1');
+        await WidgetTestsHelper.expectGolden('counter_view_test_1');
         expect(find.text('0'), findsOneWidget);
 
         await tester.tap(find.byIcon(Icons.add));
         await tester.pumpAndSettle();
-        await WidgetTestsHelper.expectGolden('counter_page_test_2');
+        await WidgetTestsHelper.expectGolden('counter_view_test_2');
         expect(find.text('1'), findsOneWidget);
 
         await tester.tap(find.byIcon(Icons.remove));
         await tester.tap(find.byIcon(Icons.remove));
         await tester.pumpAndSettle();
-        await WidgetTestsHelper.expectGolden('counter_page_test_3');
+        await WidgetTestsHelper.expectGolden('counter_view_test_3');
         expect(find.text('-1'), findsOneWidget);
 
         await tester.tap(find.byIcon(Icons.sync));
         await tester.pumpAndSettle();
-        await WidgetTestsHelper.expectGolden('counter_page_test_4');
+        await WidgetTestsHelper.expectGolden('counter_view_test_4');
         expect(find.text('0'), findsOneWidget);
       },
     );

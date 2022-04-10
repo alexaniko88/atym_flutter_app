@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class HeroViewModel {
   final Key? key;
-  final String imageURL;
-  final String name, fullName;
+  final String imageURL, name, fullName, publisher;
   final int intelligence, strength, speed, durability, power, combat;
 
   const HeroViewModel({
     required this.imageURL,
     required this.name,
     required this.fullName,
+    required this.publisher,
     this.key,
     int? intelligence,
     int? strength,
@@ -30,6 +30,7 @@ class HeroViewModel {
         imageURL: heroModel.heroImagesModel?.sm ?? '',
         name: heroModel.name ?? '',
         fullName: heroModel.biographyModel?.fullName ?? '',
+        publisher: heroModel.biographyModel?.publisher ?? '',
         combat: heroModel.powerStatsModel?.combat,
         durability: heroModel.powerStatsModel?.durability,
         intelligence: heroModel.powerStatsModel?.intelligence,
