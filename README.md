@@ -42,6 +42,12 @@ App was built/compiled and executed in the real **Android Google Pixel XL** devi
 
 ### Testing counter
 
+![counter_test](https://user-images.githubusercontent.com/40612984/162633011-b5d2cd0e-64f3-4595-a2a3-c117f370b9f9.gif)
+
 ### Testing connectivity
 
+![connectivity_test](https://user-images.githubusercontent.com/40612984/162633031-d640027d-602b-4d64-bdc8-99bd2284a096.gif)
+
 ### Testing heroes list
+
+![super_heroes_test](https://user-images.githubusercontent.com/40612984/162633049-0419e85b-f7e4-42e4-9342-316d6ecd7541.gif)
